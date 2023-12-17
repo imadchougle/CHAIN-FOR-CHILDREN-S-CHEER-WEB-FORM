@@ -1,4 +1,3 @@
-<!-- webformapp/templates/webformapp/display_data.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +23,7 @@
                 <td>{{ data.name }}</td>
                 <td>{{ data.profession }}</td>
                 <td>{{ data.city }}</td>
-                <td>{{ data.country }}</td>
+                <td>{{ data.get_country_display }}</td>
                 <td>{{ data.remarks }}</td>
             </tr>
             {% endfor %}
