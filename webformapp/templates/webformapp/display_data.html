@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var remarksCells = document.querySelectorAll("td[data-remarks]");
+
+            remarksCells.forEach(function (cell) {
+                var originalText = cell.innerText;
+                var words = originalText.split(" ");
+                var newText = "";
+                for (var i = 0; i < words.length; i++) {
+                    newText += words[i] + " ";
+                    if ((i + 1) % 6 === 0) {
+                        newText += "<br>";
+                    }
+                }
+                cell.innerHTML = newText.trim();
+            });
+        });
+    </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,7 +120,8 @@
                 <td>{{ data.profession }}</td>
                 <td>{{ data.city }}</td>
                 <td>{{ data.get_country_display }}</td>
-                <td>{{ data.remarks }}</td>
+
+                <td data-remarks>{{ data.remarks }}</td>
             </tr>
             {% endfor %}
         </tbody>

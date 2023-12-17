@@ -1,17 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Web Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Chain-For-Children's-Cheers</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #3498db;
+        }
+
+        form {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .radio-buttons-container {
+            display: flex;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .radio-buttons-container div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .radio-buttons-container div img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            border: 0px solid #3498db;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="reset"] {
+            background-color: #e74c3c;
+        }
+
+        .privacy-policy {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h2>Web Form</h2>
+    <header>
+        <h1>JOIN THE CHAIN-FOR-CHILDREN'S-CHEER</h1>
+    </header>
+
+    <h3>Please read the statement before joining.</h3>
+
+    <h2>I would like to join the Chain-for-Children's-Cheer, and also encourage others to join and grow the chain.</h2>
+
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <h3>I would like to be:</h3>
 
+        <div class="radio-buttons-container">
+
+            <div>
+                <img src="https://happy22kids.uho.org.in/images/ant-small.jpg" alt="Ant Image">
+                <label>{{ form.radio_buttons.0 }}</label>
+                <p>I will Arise and Awaken at least 2 people to join the chain</p>
+            </div>
+
+            <div>
+                <img src="https://happy22kids.uho.org.in/images/sparrow-small.jpg" alt="Sparrow Image">
+                <label>{{ form.radio_buttons.1 }}</label>
+                <p>I will Spread the Spirit to at least 5 people to join the chain</p>
+            </div>
+
+            <div>
+                <img src="https://happy22kids.uho.org.in/images/elephant-small.jpg" alt="Elephant Image">
+                <label>{{ form.radio_buttons.2 }}</label>
+                <p>I will Enthuse and Enlighten at least 20 people to join the chain</p>
+            </div>
+        </div>
+
+        <div>
+            <label>Name: {{ form.name }} </label>
+        </div>
+
+        <div>
+            <label >Profession: {{ form.profession }} </label>
+        </div>
+
+        <div>
+            <label>City: {{ form.city }} </label>
+        </div>
+
+        <div>
+            <label>Country: {{ form.country }} </label>
+        </div>
+
+        <div>
+            <label>Email or Mobile:(will NOT be displayed/shared) {{ form.email_or_mobile }} </label>
+        </div>
+
+        <div>
+            <label>Remarks:</label>
+            {{ form.remarks }}
+        </div>
 
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
+
+        <p class="privacy-policy"><b>Privacy policy:</b> Please read the statement before signing. By submitting this form, you agree that your submitted information (except contact information) will be stored and displayed on the website. Contact information will NOT be displayed or passed on.</p>
     </form>
 </body>
 </html>
