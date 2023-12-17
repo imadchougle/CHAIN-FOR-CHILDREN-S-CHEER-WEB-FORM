@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Form</title>
+    <title>Join the Chain-For-Children's-Cheers</title>
 </head>
 <body>
-    <h2>Web Form</h2>
+    <h2>JOIN THE CHAIN-FOR-CHILDREN'S-CHEER</h2>
+    <p>Please read the <a href = "https://happy22kids.uho.org.in/index.html#stmt" >statement</a> before joining.</p>
+    <p>I would like to join the <b>Chain-for-Children's-Cheer</b>, and also encourage others to join and grow the chain.</p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
-
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
     </form>
+
+<p> <b>Privacy policy:</b> Please read the statement before signing. By submitting this form, you agree that your submitted information (except contact information) will be stored and displayed on the website. Contact information will NOT be displayed or passed on.</p>
 </body>
 </html>
