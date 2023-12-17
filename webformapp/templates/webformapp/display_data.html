@@ -1,0 +1,34 @@
+<!-- webformapp/templates/webformapp/display_data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Data</title>
+</head>
+<body>
+    <h2>Display Data</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sr Number</th>
+                <th>Name</th>
+                <th>Profession</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in form_data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.profession }}</td>
+                <td>{{ data.city }}</td>
+                <td>{{ data.country }}</td>
+                <td>{{ data.remarks }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
