@@ -20,4 +20,7 @@ def display_data_view(request):
 
 
 def thank_you_view(request, sr_number):
-    return render(request, 'webformapp/thank_you.html', {'sr_number': sr_number})
+    instance = FormData.objects.get(id=sr_number)
+    selected_radio_button = instance.radio_buttons
+
+    return render(request, 'webformapp/thank_you.html', {'sr_number': sr_number, 'selected_radio_button': selected_radio_button})

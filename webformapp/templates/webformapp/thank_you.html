@@ -1,11 +1,66 @@
-<!-- webformapp/templates/webformapp/thank_you.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #3498db;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        b {
+            color: #e74c3c;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h2>Thank You for Filling the Form</h2>
-    <p>Your SR. Number is: {{ sr_number }}</p>
+    <h2>YOU HAVE JOINED THE CHAIN-FOR-CHILDREN'S-CHEER</h2>
+
+    <p>You are member number <b>{{sr_number}}</b> </p>
+
+    {% if selected_radio_button == 'Active Ant' %}
+    <p>You have joined as an <b>Active Ant.</b> Do not forget to convince at least <b>2</b> more people to join the chain!</p>
+    {% elif selected_radio_button == 'Speedy Sparrow' %}
+        <p>You have joined as a <b>Speedy Sparrow.</b> Do not forget to convince at least <b>5</b> more people to join the chain!</p>
+    {% elif selected_radio_button == 'Electric Elephant' %}
+        <p>You have joined as an <b>Electric Elephant.</b> Do not forget to convince at least <b>20</b> more people to join the chain!</p>
+    {% else %}
+        <p>You have joined with an unspecified role.</p>
+    {% endif %}
+
+    <p>Need material to get others to join the chain? Please see: <a href='https://happy22kids.uho.org.in/resources.html'>RESOURCES TO EDUCATE & AWAKEN</a></p>
+
+    <p>Click <a href="{% url 'webform_view' %}">here</a> to go back to the main page.</p>
+
 </body>
 </html>
